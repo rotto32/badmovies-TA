@@ -30,4 +30,4 @@ var queryAPI = function(requestString) {
 
 
 //export default queryAPI;
-//export default API_KEY;
+//export API_KEY =  API_KEY;

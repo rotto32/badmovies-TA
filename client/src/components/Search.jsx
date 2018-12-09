@@ -39,9 +39,13 @@ class Search extends React.Component {
   
           <select>
             {console.log('CHECK', this.state)}
-            <option value="myway">{this.state.genres[0]['name']}</option>
-            <option value="thisway">This Way</option>
-            <option value="thatway">That Way</option>
+            {this.state.genres.map(({id, name}) => {
+              return (<option key={id}> {name}
+              </option>)
+            }
+            
+            )}
+            
           </select>
           <br/><br/>
   

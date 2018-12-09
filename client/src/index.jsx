@@ -4,23 +4,31 @@ import $ from 'jquery';
 // import AnyComponent from './components/filename.jsx'
 import Search from './components/Search.jsx'
 import Movies from './components/Movies.jsx'
+import Axios from 'axios';
+
 
 class App extends React.Component {
   constructor(props) {
   	super(props)
   	this.state = {
-      movies: [{deway: "movies"}],
+      movies: [],
       favorites: [{deway: "favorites"}],
       showFaves: false,
     };
     
     // you might have to do something important here!
     
+    
   }
 
 
   getMovies() {
     // make an axios request to your server on the GET SEARCH endpoint
+    return Axios.get('/movies/search')
+      .then((res) => {
+        console.log('get genres success');
+        this.setState({movies:res.data.results});
+      })
   }
 
   saveMovie() {
@@ -40,6 +48,7 @@ class App extends React.Component {
 
   componentDidMount() {
     console.log('did mount')
+    this.getMovies();
 
   }
 

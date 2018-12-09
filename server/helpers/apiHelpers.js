@@ -10,3 +10,24 @@ const { API_KEY } = require('../../config.js');
 // Get your API Key and save it in your config file
 
 // Don't forget to export your functions and require them within your server file
+
+//get genres
+
+var queryAPI = function(requestString) {
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://api.themoviedb.org/3${requestString}?language=en-US&api_key=${API_KEY}",
+        "method": "GET",
+        "headers": {},
+        "data": "{}"
+      }
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+    });
+}
+
+
+
+//export default queryAPI;
+//export default API_KEY;

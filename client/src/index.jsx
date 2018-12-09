@@ -15,7 +15,9 @@ class App extends React.Component {
     };
     
     // you might have to do something important here!
+    
   }
+
 
   getMovies() {
     // make an axios request to your server on the GET SEARCH endpoint
@@ -35,6 +37,12 @@ class App extends React.Component {
       showFaves: !this.state.showFaves
     });
   }
+
+  componentDidMount() {
+    console.log('did mount')
+
+  }
+
 
   render () {
   	return (

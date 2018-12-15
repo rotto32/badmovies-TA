@@ -9,7 +9,7 @@ Learn the fundamentals of application structure and database integration by maki
 
 [x] User should be given a list of official genres to choose from
 
-[ ] Movies should be sorted to show the movies with horrible ratings first (figure out how to modify the API endpoint to do so)
+[x] Movies should be sorted to show the movies with horrible ratings first (figure out how to modify the API endpoint to do so)
 
 [ ] User should be able to click on a movie within the search results in order to save it to their favorites (mySQL database, you must make your own Schema)
 

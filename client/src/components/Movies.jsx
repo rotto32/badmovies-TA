@@ -24,7 +24,7 @@ class Movies extends React.Component {
             
             return (
             <li className="movie_item">
-            <img src="https://lh3.googleusercontent.com/97gnjRiv2zIRnDupzfxYFoI-6zlIK3jKgb6KOCDf_tjWkY9epbITdSFIbiKhuccOqQ=w300" />
+            <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} />
             <div className="movie_description">
               <h2>{title}</h2>
               <section className="movie_details">

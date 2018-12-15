@@ -19,6 +19,14 @@ class Search extends React.Component {
         console.log(this.state.genres[0]['name']);
       })
   }
+
+  getDropdownValue() {
+    var optionList = document.getElementById('drop');
+    console.log('I GOT CLICKED AND THIS IS MY VALUE', optionList.value);
+    return optionList.value;
+
+  }
+
   componentDidMount() {
     this.getGenres();
     console.log('genre mounting', this.state);
@@ -37,10 +45,10 @@ class Search extends React.Component {
           {/* Make the select options dynamic from genres !!! */}
           {/* How can you tell which option has been selected from here? */}
   
-          <select>
+          <select id = 'drop'>
             {console.log('CHECK', this.state)}
             {this.state.genres.map(({id, name}) => {
-              return (<option key={id}> {name}
+              return (<option value = {id} key={id}> {name}
               </option>)
             }
             
@@ -49,7 +57,7 @@ class Search extends React.Component {
           </select>
           <br/><br/>
   
-          <button>Search</button>
+          <button onClick={() => {this.props.getMovies(this.getDropdownValue())}}>Search</button>
   
         </div>
       );

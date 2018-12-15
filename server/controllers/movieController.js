@@ -2,7 +2,6 @@ const movieModel = require('../models/movieModel.js');
 const apiHelpers = require('../helpers/apiHelpers.js');
 const axios = require('axios');
 const { API_KEY } = require('../../config.js');
-//const API_KEY = 'e1b5a115b1713be8242d6ac760fc8885';
 
     // https://www.themoviedb.org/account/signup
     // get your API KEY
@@ -12,16 +11,18 @@ const { API_KEY } = require('../../config.js');
 module.exports = {
   getSearch: (req, res) => {
     // get the search genre
-    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=vote_average.asc&include_adult=false&include_video=false&page=1`)
+    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=vote_average.asc&include_adult=false&include_video=false&page=1&with_genres=${req.query.value}`)
       .then(function(response) {
         const data = response.data;
         console.log(data);
         res.send(data);
       })
       .catch((err)=> {
-        console.log('getSearch was not successful')
+        console.log('getSearch was not successful', err)
       })
-
+    console.log('inside getsearch')
+    //console.log(' These are params', req)
+    console.log('value is', req.query.value)
 
 
     // https://api.themoviedb.org/3/discover/movie
@@ -33,7 +34,7 @@ module.exports = {
     axios.get(`https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=${API_KEY}`)
       .then(function(response) {
         const data = response.data;
-        console.log(data);
+        //console.log(data);
         res.send(data);
       })
       .catch((err) => {

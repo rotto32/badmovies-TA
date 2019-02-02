@@ -5,7 +5,7 @@ Learn the fundamentals of application structure and database integration by maki
 
 ### Basic functionality (CRUD app minus update functionality): 
 
-[ ] User should be allowed to search for movies by genre
+[x] User should be allowed to search for movies by genre
 
 [x] User should be given a list of official genres to choose from
 

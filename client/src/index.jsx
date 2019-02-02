@@ -17,8 +17,9 @@ class App extends React.Component {
     };
     
     // you might have to do something important here!
-    this.getMovies = this.getMovies.bind(this)
-    
+    this.getMovies = this.getMovies.bind(this);
+    this.saveMovie = this.saveMovie.bind(this);
+    this.swapFavorites = this.swapFavorites.bind(this);
   }
 
 
@@ -31,13 +32,21 @@ class App extends React.Component {
     })
       .then((res) => {
         console.log('get genres success');
-        console.log(res.data.results)
         this.setState({movies:res.data.results});
       })
   }
 
-  saveMovie() {
+  saveMovie(movieID) {
     // same as above but do something diff
+    console.log('save function invoked', movieID.id);
+    return Axios.post('/movies/save', {
+      params: {
+        value: movieID.id
+      }
+    })
+    .then((res) => {
+      console.log('saveMovieSuccess:')
+    })
   }
 
   deleteMovie() {
@@ -65,7 +74,8 @@ class App extends React.Component {
         
         <div className="main">
           <Search swapFavorites={this.swapFavorites} showFaves={this.state.showFaves} getMovies = {this.getMovies}/>
-          <Movies movies={this.state.showFaves ? this.state.favorites : this.state.movies} showFaves={this.state.showFaves}/>
+          <Movies movies={this.state.showFaves ? this.state.favorites : this.state.movies} showFaves={this.state.showFaves}
+            saveMovie = {this.saveMovie}/>
         </div>
       </div>
     );
